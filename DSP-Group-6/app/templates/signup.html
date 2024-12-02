@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .signup-container {
+            background-color: #fff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .signup-container h2 {
+            text-align: center;
+            color: #6e8efb;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .signup-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .signup-container label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .signup-container input {
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .signup-container input:focus {
+            border-color: #6e8efb;
+            outline: none;
+        }
+
+        .signup-container button {
+            background-color: #6e8efb;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .signup-container button:hover {
+            background-color: #5a77d7;
+        }
+
+        .signup-container p {
+            text-align: center;
+            margin-top: 20px;
+            color: #555;
+        }
+
+        .signup-container p a {
+            color: #6e8efb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .signup-container p a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .signup-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h2>Create Your Account</h2>
+        <form method="post" action="{{ url_for('main.signup') }}">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <label for="group">User Group</label>
+            <input type="text" id="group" name="group" placeholder="Enter user group (H or R)" required>
+
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="{{ url_for('main.login') }}">Log in here</a>.</p>
+    </div>
+</body>
+</html>
